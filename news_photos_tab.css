@@ -1,0 +1,18 @@
+@charset "utf-8";
+* { margin: 0px; padding: 0px; }
+body { font-family:  "Microsoft YaHei", "微软雅黑", "SimSun", "宋体"; font-size: 14px; color: #000; line-height: 20px; background: #FFF; width: 700px; overflow: hidden; padding-bottom: 20px; }
+a { color: #000; text-decoration: none; }
+a:hover { text-decoration: underline; }
+ol, ul, li { list-style-type: none; }
+img { border: none; vertical-align: top; }
+
+.title { font-size: 20px; color: #333; border-bottom: 1px solid #EEE; padding-bottom: 20px; }
+.title span { border-left: 3px solid #3669CA; padding-left: 10px; }
+
+.data { width: 700px; overflow: hidden; margin-top: 20px; position: relative; }
+.list { overflow: hidden; zoom: 1; }
+.list li { display: inline; float: left; width: 220px; margin-right: 20px; }
+.list li h2 { font-weight: normal; font-size: 14px;line-height: 25px; width: 100%; }
+
+.leftArr { background: url(../images/photoLeftArr.png); display: block; width: 25px; height: 44px; position: absolute; left: 0; top: 50px; cursor: pointer; }
+.rightArr { background: url(../images/photoRightArr.png); display: block; width: 25px; height: 44px; position: absolute; right: 0; top: 50px; cursor: pointer; }

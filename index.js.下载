@@ -1,0 +1,113 @@
+(function ($) {
+    var pageKey = $('meta[name="keywords"]').attr('content'),
+        contentid = $.trim($('meta[name="contentid"]').attr('content')),
+        url = 'http://query.china.com.cn/news/queryFn',
+        default_param = {
+            index: 'ciic_cn_news',
+            pagetag:2,
+            field: 'keyword',
+            kw: '',
+            pageSize: 5,
+            startPage: 1
+        },
+        param = $.extend({}, default_param);
+
+    function getData(key) {
+        param['kw'] = key;
+        $.getScript(url + '?' + $.param(param).replace(/\+/g, '%20'));
+    }
+
+    function rendHtml(obj) {
+        var i, temp = [],
+            newsList = $('#articleRelevant ul'),
+            len = obj.recordList.length;
+        for (i = 0; i < len; i++) {
+            var keyWords = obj.recordList[i].keyword.replace(/<span style='color:red'>/g,'').replace(/<\/span>/g,'');
+            if (!obj.recordList[i].url.match(contentid)) {
+                temp.push('<li><h3><a href="' + obj.recordList[i].url + '" target="_blank">' + obj.recordList[i].title +
+                    '</a></h3><p><a href="' + obj.recordList[i].url + '" target="_blank">' + obj.recordList[i].abstra +
+                    '</a></p><div>' + obj.recordList[i].date + ' | ' + getKeywords(keyWords) + '</div></li>');
+            }
+        }
+
+        if (!newsList[0]) {
+            $('#articleRelevant h2').after('<ul></ul>');
+        }
+        $('#articleRelevant ul').append(temp.join(''));
+        if (param.startPage > obj.pageCount) {
+            $('#relevantMore').hide();
+            return;
+        }
+
+        if (param.startPage == obj.pageCount) {
+            $('#relevantMore').hide();
+        }
+    }
+
+    function getKeywords(str) {
+        var i, html = [],
+            filter_str = $.trim(str).replace(/薄熙来|徐才厚|周永康|令计划|郭伯雄|孙政才|鲁炜/, '').replace(/\s+/g,','),
+            keyArr = $.trim(filter_str).split(','),
+            len = keyArr.length;
+
+        for (i = 0; i < len; i++) {
+            if ($.trim(keyArr[i]).length > 0) {
+                html.push('<a href="http://www.china.com.cn/query/query.html?index=ciic_cn_news&kw=' + keyArr[i] +
+                    '" target="_blank">' + keyArr[i] + '</a>');
+            }
+        }
+        return html.join('');
+    }
+
+    getData($.trim(pageKey.split(',')[0]));
+
+    window.queryRes = function (data) {
+        rendHtml(data);
+    };
+
+    $('.articleRelevant h2 span').wrap('<a href="http://news.china.com.cn" target="_blank"></a>');
+    $('#articleKeywords').append(getKeywords(pageKey));
+    $('#relevantMore').on('click', function () {
+        param.startPage += 1;
+        getData($.trim(pageKey.split(',')[0]));
+    });
+})(jQuery);
+
+//正文字号
+(function ($) {
+    var fontSize = 18;
+    $('#zoomUp').on('click', function () {
+        if (fontSize >= 36) {
+            alert('新闻内容不能再大了！');
+            return;
+        } else {
+            fontSize += 2;
+        }
+        $('#articleBody').css({
+            'font-size': fontSize
+        });
+    });
+    $('#zoomDown').on('click', function () {
+        if (fontSize <= 12) {
+            alert('新闻内容不能再小了！');
+            return;
+        } else {
+            fontSize -= 2;
+        }
+        $('#articleBody').css({
+            'font-size': fontSize
+        });
+    });
+})(jQuery);
+
+(function ($) {
+    $('#crumbs a:first').attr('href', 'http://www.china.com.cn');
+    $("#tsina").html('<wb:follow-button uid="1791805181" type="red_3" width="100%" height="24" ><\/wb:follow-button>');
+
+    $('body').append('<div id="retop"><img src="http://images.china.cn/images1/ch/2016content/images/top.gif" style="" /></div>');
+    $('#retop').on('click', function () {
+        $('html,body').animate({
+            scrollTop: '0px'
+        }, 1000);
+    });
+})(jQuery);

@@ -1,0 +1,107 @@
+
+.code{
+    -moz-border-radius:.3em;
+    -webkit-border-radius:.3em;
+    border-radius:.3em;
+    background-color:#e2e2e2;
+    color:#000;
+    font-family:'Fira mono', 'Courier New', Courier, monospace;
+    font-size:85%;
+    letter-spacing:.05em;
+    padding:1em;
+}
+
+
+.aligncontent-center {
+    text-align: center;
+}
+
+.wrapper {
+	z-index:9999
+}
+
+.main-header {
+    text-align: center;
+    font-weight:300;
+    font-size: 90%;
+}
+
+.toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    line-height: 68px;
+	z-index:999;
+}
+
+.menu-button {
+  position: fixed;
+  margin: 5px !important;
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+  left: 15px;
+  top: 0;
+}
+.menu-button:before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  right: 3px;
+  border-bottom: 17px double #9b0608;
+  border-top: 6px solid #9b0608;
+  width: 30px;
+  height: 5px;
+}
+
+.menu-left {
+  float: left;
+  margin-right: 1.5em;
+}
+
+.sidebar {
+    margin: 0;
+    padding-top: 1em;
+    color: white;
+    background-color:#9b0608;
+	opacity:0.8;
+}
+
+.sidebar h6 {
+    margin: 0 .8em;
+    padding: 0;
+    font-weight:300;
+	border-bottom:1px #fff solid;
+	padding-bottom:15px;
+}
+.sidebar ul{margin: 0 .8em;}
+
+.sidebar li {
+    margin: .5em 0;
+    padding: 0 1em;
+    line-height: 45px;
+	border-bottom:1px #fff solid;
+}
+.sidebar li a {
+	color:#fff;
+	font-size:0.8rem; 
+}
+
+.sidebar li:hover {
+    background-color: #d5c05b;
+	text-decoration:none;
+}
+
+.sidebar hr {
+    margin: 2em auto;
+    border: 0;
+    padding: 0;
+    width: 80%;
+    height: 1px;
+    background-color: white;
+    
+}
+
+/**/
