@@ -1,0 +1,51 @@
+@charset "utf-8";
+.nav_dh{width: 100%;background: #2d78bd;height: 100px; margin-bottom:30px;}
+
+.nav_dh_div{width: 1200px;margin: 0 auto;}
+
+.logo{float: left;width: 350px;}
+
+.topNav {
+    background: #F3F3F3 url(http://images.china.cn/images1/ch/2017news/images/b_1.png) no-repeat center top;
+    height: 40px;
+    min-width: 980px;
+}
+
+.topNav i {
+    font-style: normal;
+    font-size: 14px;
+    color: #666;
+    line-height: 40px;
+}
+
+.topNav i a {
+    color: #666;
+}
+
+.searchBox {
+    border-bottom: 1px solid #CCC;
+    width: 180px;
+    padding: 8px 0 3px 0;
+}
+
+.searchBox .v {
+    background: #F3F3F3;
+    border: none;
+    width: 150px;
+}
+
+.searchBox .b {
+    background: url(http://images.china.cn/images1/ch/2017news/images/b_2.png) no-repeat center center;
+    border: none;
+    width: 18px;
+    height: 20px;
+    outline: none;
+    cursor: pointer;
+}
+
+.searchBox input:focus {
+    outline: none;
+}
+.w1200 {
+    width: 1200px;
+}
